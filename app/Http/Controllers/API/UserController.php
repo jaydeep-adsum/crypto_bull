@@ -56,7 +56,7 @@ class UserController extends AppBaseController
             $user = User::create($input);
 
             if ($user) {
-                $credentials['user_name'] = $user->user_name;
+                $credentials['email'] = $user->email;
                 $credentials['password'] = $user->password;
 
                 if ($user = $this->authenticator->attemptSignUp($credentials)) {
@@ -99,7 +99,7 @@ class UserController extends AppBaseController
                 return response()->json(['status' => "false", 'data' => $error, 'message' => implode(', ', $validator->errors()->all())]);
             }
 
-                $credentials['user_name'] = $request->user_name;
+                $credentials['email'] = $request->email;
                 $credentials['password'] = $request->password;
 
                 if ($user = $this->authenticator->attemptLogin($credentials)) {

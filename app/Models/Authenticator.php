@@ -43,7 +43,7 @@ class Authenticator
             throw new RuntimeException('Unable to determine authentication model from configuration.');
         }
         /** @var Authenticatable $user */
-        if (!$user = (new $model)->Where([['user_name', $credentials['user_name']], ['password', $credentials['password']]])->first())
+        if (!$user = (new $model)->Where([['email', $credentials['email']], ['password', $credentials['password']]])->first())
         {
             return null;
         }
@@ -65,7 +65,7 @@ class Authenticator
              throw new RuntimeException('Unable to determine authentication model from configuration.');
          }
          /** @var Authenticatable $user */
-         if (!$user = (new $model)->Where([['user_name', $credentials['user_name']]])->first())
+         if (!$user = (new $model)->Where([['email', $credentials['email']]])->first())
          {
              return null;
          }

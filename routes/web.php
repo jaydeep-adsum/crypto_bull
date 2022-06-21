@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::redirect("/api-view", "public/swagger-ui");
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+   return view('welcome');
+});
